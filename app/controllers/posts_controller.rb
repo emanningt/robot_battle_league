@@ -19,7 +19,9 @@ class PostCard < ApplicationController
       if !logged_in?
         redirect "/login"
       else
-        "a new post form"
+        post = Post.find(params[:id])
+        "a new post form #{current_user.id} is editing #{post.id}"
       end
     end
+
 end
