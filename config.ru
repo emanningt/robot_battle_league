@@ -8,4 +8,5 @@ use PostCard
 use CardController
 use LoginController
 use NewCardController
+use UsersController
 run ApplicationController
