@@ -1,23 +1,23 @@
 class PostCard < ApplicationController
   get '/posts' do
-    "You are loged in as #{session[:email]}"
+    "You are loged in as no one"
   end
 
   get '/yourcard' do
     "Your card is #{session[:card]}"
   end
 
-  get '/post/new' do
-  if !session[:email]
-    redirect '/'
+  get '/posts/new' do
+  if !logged_in?
+    redirect '/login'
   else
     "a new post form"
   end
   end
 
-    get '/post/id/edit' do
-      if !session[:email]
-        redirect '/login'
+    get '/posts/:id/edit' do
+      if !logged_in?
+        redirect "/login"
       else
         "a new post form"
       end
