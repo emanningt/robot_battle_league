@@ -6,7 +6,6 @@ class NewCardController < ApplicationController
 
   post '/card' do
     session[:card] = params[:card]
-
     redirect '/yourcard'
   end
 

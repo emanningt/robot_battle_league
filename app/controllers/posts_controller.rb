@@ -7,11 +7,19 @@ class PostCard < ApplicationController
     "Your card is #{session[:card]}"
   end
 
-  get '/post/new'
-  if session[:email].empty?
-    redirect "/login"
+  get '/post/new' do
+  if !session[:email]
+    redirect '/'
   else
     "a new post form"
-  end 
   end
+  end
+
+    get '/post/id/edit' do
+      if !session[:email]
+        redirect '/login'
+      else
+        "a new post form"
+      end
+    end
 end
