@@ -4,13 +4,21 @@ class NewCardController < ApplicationController
     erb :create_card
   end
 
-  post '/makecard' do
-    session[:makecard] = params[:makecard]
-    redirect '/postcard'
+  post '/card' do
+    session[:card] = params[:card]
+
+    redirect '/yourcard'
   end
 
-  get '/postcard' do
-    "You got #{session[cardname]} #{session[cardtype]}"
-  end
+  # "you made a card #{session[:email]}"
+
+  # post '/makecard' do
+  #   session[:makecard] = params[:makecard]
+  #   redirect '/postcard'
+  # end
+  #
+  # get '/postcard' do
+  #   "You got #{session[cardname]} #{session[cardtype]}"
+  # end
 
 end

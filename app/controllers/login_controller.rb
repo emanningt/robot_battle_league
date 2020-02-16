@@ -5,7 +5,13 @@ class LoginController < ApplicationController
   end
 
   post '/sessions' do
-    'Hello World'
+    session[:email] = params[:email]
+
+    redirect '/posts'
+  end
+
+  get '/logout' do
+    session.clear
   end
 
 end

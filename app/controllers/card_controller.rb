@@ -1,15 +1,15 @@
 class CardController < ApplicationController
 
   get '/redcards' do
-    erb :red
+    erb :"/cards/red"
   end
 
   get '/bluecards' do
-    erb :blue
+    erb :"/cards/blue"
   end
 
   get '/yellowcards' do
-    erb :yellow
+    erb :"/cards/yellow"
   end
 
 end
