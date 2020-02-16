@@ -6,6 +6,6 @@ class LoginController < ApplicationController
 
   post '/sessions' do
     'Hello World'
-  end 
+  end
 
 end
