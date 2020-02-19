@@ -9,4 +9,5 @@ use CardController
 use LoginController
 use NewCardController
 use UsersController
+use RulesController
 run ApplicationController
