@@ -1,6 +1,6 @@
 class PostCard < ApplicationController
   get '/posts' do
-    "You are loged in as no one"
+    "You are loged in as no #{current_user.id}"
   end
 
   get '/posts/new' do
@@ -15,8 +15,11 @@ class PostCard < ApplicationController
       if !logged_in?
         redirect "/login"
       else
-        post = Post.find(params[:id])
+        if post = current_user.posts.find(params[:id])
         "an edit post form #{current_user.id} is editing #{post.id}"
+        else 
+          redirect '/posts '
+        end 
       end
     end
 
