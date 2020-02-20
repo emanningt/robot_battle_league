@@ -23,8 +23,6 @@ class PostCard < ApplicationController
       end
     end
 
-    get '/yourcard' do
-      "Your card is #{session[:card]}"
-    end
+    
 
 end

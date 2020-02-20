@@ -12,4 +12,6 @@ class CardController < ApplicationController
     erb :"/cards/yellow"
   end
 
+
+
 end

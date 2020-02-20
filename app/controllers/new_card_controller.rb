@@ -5,19 +5,17 @@ class NewCardController < ApplicationController
   end
 
   post '/newcard' do
-    session[:card] = params[:card]
-    redirect '/yourcard'
+    @cards = Cards.new
+    @cards.cardname = params[:card]
+    @cards.cardtype = params[:type]
+    @cards.save
+    "your cars are #{session[:card]} "
   end
 
-  # "you made a card #{session[:email]}"
+  get '/yourcard' do
+    "Your card is "
+  end
 
-  # post '/makecard' do
-  #   session[:makecard] = params[:makecard]
-  #   redirect '/postcard'
-  # end
-  #
-  # get '/postcard' do
-  #   "You got #{session[cardname]} #{session[cardtype]}"
-  # end
+
 
 end
