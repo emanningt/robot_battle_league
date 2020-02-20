@@ -1,6 +1,6 @@
 class PostCard < ApplicationController
   get '/posts' do
-    "You are loged in as no #{current_user.id}"
+    erb :'/posts/logedin'
   end
 
   get '/posts/new' do

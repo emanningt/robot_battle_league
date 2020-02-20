@@ -4,7 +4,7 @@ class NewCardController < ApplicationController
     erb :create_card
   end
 
-  post '/card' do
+  post '/newcard' do
     session[:card] = params[:card]
     redirect '/yourcard'
   end

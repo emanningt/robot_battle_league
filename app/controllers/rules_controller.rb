@@ -24,7 +24,3 @@ class RulesController < ApplicationController
 end 
 
 
-# goal 
-# setup
-# gameplay
-# altrules
