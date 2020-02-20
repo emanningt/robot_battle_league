@@ -4,4 +4,14 @@ class RulesController < ApplicationController
         erb :'/rules/home'
     end 
 
+    get '/goal' do 
+        erb :'/rules/Goal'
+    end
+
 end 
+
+
+# goal 
+# setup
+# gameplay
+# altrules
