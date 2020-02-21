@@ -5,17 +5,13 @@ class NewCardController < ApplicationController
   end
 
   post '/newcard' do
-    @cards = Cards.new
-    @cards.cardname = params[:card]
-    @cards.cardtype = params[:type]
-    @cards.save
-    "your cars are #{session[:card]} "
+    @user = Cards.new
+    @user.cardname
+    @user.save
+    
+    erb :'cardpost/making'
+    
   end
-
-  get '/yourcard' do
-    "Your card is "
-  end
-
 
 
 end
