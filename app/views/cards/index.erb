@@ -1,0 +1,13 @@
+<h1>Cards</h1>
+
+<ul>
+<% @cards.each do |card|%>
+<li><em>Card Name: <%= card.cardname %></em></li>
+<li>Card Type: <%= card.cardetype %> </li>
+<liRequirements: <%= card.requirements %> </li>
+<% end %>
+</ul>
+
+
+
+<p><a href="/">Home</a>      <a href="redcards">Attack Cards</a>     <a href="yellowcards">Specialty Cards</a> </p>

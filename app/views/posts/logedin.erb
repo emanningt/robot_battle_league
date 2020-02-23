@@ -1,7 +1,13 @@
 <h1> Welcome to Your account</h1>
-<p><a href="/">home</a> <a name="rules"></a></p>
+<p><a href="/">home</a> <a name="rules"></a><a href="logout">logout</a></p>
 
 <body>
 
     <p>Hello, <%= "You are loged in as " + session[:email] %>.</p>
+
+    <li><a href="rules">How To Play</a></li>
+  <li><a href="redcards">Attack Cards</a></li>
+  <li><a href="bluecards">Defense Cards</a></li>
+  <li><a href="yellowcards">Specialty Cards</a></li>
+  <li><a href="cards/new">Create Cards</a></li> 
   </body>

@@ -1,19 +1,14 @@
-<h1>This is where you get to create your own card! How eciteing is that!</h1>
+<h1>This is where you get to create your own card! How exciting is that!</h1>
 
-<form action="newcard" method="POST">
-  <p>
-    <lable for="card">Card Name:</label>
-      <input type="text" name="card" id="card" />
-      </p>
+<form action="cards/new" method="POST">
+    <lable for="cardname">Card Name:</label>
+      <input type="text" name="card[cardname]" id="card_name" />
       
-  <p>
     <lable for="type">Card Type:</label>
-      <input type="text" name="type" id="type" />
-      </p>
-
-<p>
-
-  <textarea cols="20" name="discription" rows="5">Card Discription</textarea><br />
+      <input type="text" name="card[cardetype]" id="card_type" />
+    
+      <lable for="requirements">Card Requirements:</label>
+        <input type="text" name="card[requirements]" id="requirements" />
 
    <input type="submit" />
 

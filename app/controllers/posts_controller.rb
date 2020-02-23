@@ -1,6 +1,11 @@
 class PostCard < ApplicationController
   get '/posts' do
-    erb :'/posts/logedin'
+    if !logged_in?
+      redirect '/login'
+    else 
+      erb :'/posts/logedin'
+      
+    end
   end
 
   get '/posts/new' do
