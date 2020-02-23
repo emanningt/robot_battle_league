@@ -15,7 +15,7 @@ class NewCardController < ApplicationController
   end 
 
   post '/cards/cards/new' do
-    binding.pry
+    #binding.pry
     
     erb :'cardpost/making'
     
