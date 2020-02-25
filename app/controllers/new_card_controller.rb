@@ -12,14 +12,19 @@ class NewCardController < ApplicationController
      end 
      if params[:cardname] != ""
       card_entry
-      redirect "/create_card/#{@cards.id}"
+      redirect "/cards/#{@cards.id}"
      else 
       redirect '/cards/new'
      end 
-
-     
-
   end 
 
+    get '/cards/:id' do 
+      @cards = Cards.find(params[:id])
+      erb :'create_card/show'
+    end 
+
+    get '/cards/cards/:id/edit' do
+      erb :'create_card/edit'
+    end
 
 end
