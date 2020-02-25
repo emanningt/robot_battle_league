@@ -1,27 +1,25 @@
 class NewCardController < ApplicationController
 
-  get '/cards' do
-    @cards = Cards.all
-    erb :'cards/index'
-  end
 
   get '/cards/new' do
     erb :'create_card/new'
   end
 
-  get 'cards/:id' do 
-    @cards = Cards.find(params[:id])
-    erb :'cards/show'
-  end 
-
-  post '/cards/cards/new' do
-    #binding.pry
-    # card =  Card.new(cardname: params[:card][:cardname], cardetype: params[:card][:cardetype], requirements: params[:card][:requirements])
-    # params[:card].each do |card_data|
-       
-    erb :'cardpost/making'
+  post '/cards/cards' do 
     
-  end
+     if !logged_in? 
+      redirect "/"
+     end 
+     if params[:cardname] != ""
+      card_entry
+      redirect "/create_card/#{@cards.id}"
+     else 
+      redirect '/cards/new'
+     end 
+
+     
+
+  end 
 
 
 end

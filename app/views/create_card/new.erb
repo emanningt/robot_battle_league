@@ -1,15 +1,15 @@
 <h1>This is where you get to create your own card! How exciting is that!</h1>
 
-<form action="cards/new" method="POST">
+<form action="cards" method="POST">
     <lable for="cardname">Card Name:</label>
-      <input type="text" name="card[cardname]" id="card_name" />
+      <input type="text" name="cardname" id="card_name" />
       
     <lable for="type">Card Type:</label>
-      <input type="text" name="card[cardetype]" id="card_type" />
+      <input type="text" name="cardtype" id="card_type" />
     
       <lable for="requirements">Card Requirements:</label>
-        <input type="text" name="card[requirements]" id="requirements" />
+        <input type="text" name="requirements" id="requirements" />
 
-   <input type="submit" />
+   <input type="submit" value="Create Card" >
 
 </form>

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20200220172939) do
 
   create_table "cards", force: :cascade do |t|
     t.string  "cardname"
-    t.text    "cardetype"
+    t.text    "cardtype"
     t.text    "requirements"
     t.integer "user_id"
   end
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20200220172939) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email"
     t.string "password_digest"
   end

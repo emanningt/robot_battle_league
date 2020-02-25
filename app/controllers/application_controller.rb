@@ -40,9 +40,10 @@ class ApplicationController < Sinatra::Base
         session.clear
       end
 
-      def users_card?
-
+      def card_entry
+        @cards = Cards.create(cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements], user_id: current_user.id)
       end 
+    
   end
 
   
