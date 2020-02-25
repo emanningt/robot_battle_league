@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if logged_in?
+      redirect '/posts'
+    else
     erb :hello
+    end 
   end
 
   helpers do
@@ -35,6 +39,10 @@ class ApplicationController < Sinatra::Base
       def logout!
         session.clear
       end
+
+      def users_card?
+
+      end 
   end
 
   

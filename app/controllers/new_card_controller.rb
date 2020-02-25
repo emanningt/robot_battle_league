@@ -16,7 +16,9 @@ class NewCardController < ApplicationController
 
   post '/cards/cards/new' do
     #binding.pry
-    
+    # card =  Card.new(cardname: params[:card][:cardname], cardetype: params[:card][:cardetype], requirements: params[:card][:requirements])
+    # params[:card].each do |card_data|
+       
     erb :'cardpost/making'
     
   end
