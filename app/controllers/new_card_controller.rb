@@ -24,7 +24,30 @@ class NewCardController < ApplicationController
     end 
 
     get '/cards/cards/:id/edit' do
-      erb :'create_card/edit'
+      @cards = Cards.find(params[:id])
+      if logged_in?
+       if @cards.user == current_user
+          erb :'create_card/edit'
+       else 
+        redirect "posts/#{current_user.id}"
+       end
+      else
+        redirect '/'
+      end 
+    end
+
+    patch '/cards/:id' do
+      @cards = Cards.find(params[:id])
+      if logged_in?
+
+        if @cards.user == current_user
+            @cards.update({cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements]})
+            redirect "cards/#{@cards.id}"
+        else 
+          redirect "posts"
+        end
+
+      end 
     end
 
 end

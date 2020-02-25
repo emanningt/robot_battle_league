@@ -1,1 +1,18 @@
-this is the edit form 
+Edit Card 
+
+<form action="/cards/<%= @cards.id %>" method="POST">
+
+    <input type="hidden" name="_method" value="patch">
+
+    <lable for="cardname">Card Name:</label>
+      <textarea name="cardname" style="width:auto; height:auto;"><%= @cards.cardname%></textarea>
+      
+    <lable for="type">Card Type:</label>
+    <textarea name="cardtype" style="width:auto; height:auto;"><%= @cards.cardtype%></textarea>
+    
+      <lable for="requirements">Card Requirements:</label>
+      <textarea name="requirements" style="width:auto; height:auto;"><%= @cards.requirements%></textarea>
+
+   <input type="submit" value="Edit Card" >
+
+</form>
