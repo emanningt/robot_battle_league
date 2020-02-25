@@ -6,7 +6,7 @@ class NewCardController < ApplicationController
   end
 
   get '/cards/new' do
-    erb :create_card
+    erb :'create_card/new'
   end
 
   get 'cards/:id' do 
