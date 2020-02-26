@@ -11,14 +11,9 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}"
     else
-    redirect '/'
+      redirect "users/#{@user.id}"
     end 
   end
-
-  get '/users/:id' do 
-    @user = User.find_by(id: params[:id])
-    erb :'users/logedin'
-  end 
 
   get '/signup' do
     erb :"users/new"
@@ -27,14 +22,20 @@ class UsersController < ApplicationController
   post '/users' do 
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
       @user = User.create(params)
+      session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else 
-      redirect "/"
+      redirect "/signup"
     end 
   end 
 
+  get '/users/:id' do 
+    @user = User.find_by(id: params[:id])
+    erb :'users/logedin'
+  end 
+
   get '/logout' do
-    logout!
+    session.clear
     redirect '/'
   end
 

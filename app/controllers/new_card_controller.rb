@@ -5,12 +5,12 @@ class NewCardController < ApplicationController
     erb :'create_card/new'
   end
 
-  post '/cards/cards' do 
+  post '/cards' do 
     
      if !logged_in? 
       redirect "/"
      end 
-     if params[:cardname] != ""
+     if params[:cardname] != "" && params[:cardtype] != "" && params[:requirements] != ""
       card_entry
       redirect "/cards/#{@cards.id}"
      else 
@@ -23,7 +23,7 @@ class NewCardController < ApplicationController
       erb :'create_card/show'
     end 
 
-    get '/cards/cards/:id/edit' do
+    get '/cards/:id/edit' do
       @cards = Cards.find(params[:id])
       if logged_in?
        if @cards.user == current_user

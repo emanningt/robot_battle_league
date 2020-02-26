@@ -5,8 +5,8 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 
-use CardController
-use NewCardController
 use UsersController
 use RulesController
+use CardController
+use NewCardController
 run ApplicationController

@@ -1,7 +1,10 @@
 <h2> This is your card to bring life to the game! Good luck out there! </h1>
 
+<h4> Card Name:</h4>
 <p><%= @cards.cardname %></p>
+<h4> Card Type:</h4>
 <p><%= @cards.cardtype %></p>
+<h4>Description: </h4>
 <p><%= @cards.requirements %></p>
 
-<a href="cards/<%= @cards.id %>/edit"> Edit Entry</a> 
+<a href="/cards/<%= @cards.id %>/edit"> Edit Entry</a> 
