@@ -36,7 +36,7 @@ class NewCardController < ApplicationController
       end 
     end
 
-    patch '/cards/:id' do
+    post '/cards/:id' do
       @cards = Cards.find(params[:id])
       if logged_in?
 
@@ -44,7 +44,7 @@ class NewCardController < ApplicationController
             @cards.update({cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements]})
             redirect "cards/#{@cards.id}"
         else 
-          redirect "posts"
+          redirect "/"
         end
 
       end 

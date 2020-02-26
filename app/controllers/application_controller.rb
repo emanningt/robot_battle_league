@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
       end
 
       def current_user
-        @current_user ||= User.find_by(:email => session[:email]) if session[:email]
+        @current_user = User.find_by(id: session[:user_id])
       end
 
       def login(email, password)
@@ -43,7 +43,9 @@ class ApplicationController < Sinatra::Base
       def card_entry
         @cards = Cards.create(cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements], user_id: current_user.id)
       end 
-    
+      
+      
+
   end
 
   
