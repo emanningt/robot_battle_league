@@ -1,11 +1,12 @@
-<h1> Your cards </h1>
+<h1> All Cards </h1>
 
 <ul>
 <% @cards.each do |card|%>
-<h4><a href="/cards/show" Card Name: ><%= card.cardname %></a></h4>
+    
+<h4>Card Name: <a href="/cards/<%= card.id %>"><%= card.cardname %></a></h4>
 <li>Card Type: <%= card.cardtype %> </li>
 <li>Requirements: <%= card.requirements %> </li>
-<p> By: <%  %></p>
+<p> By: <%= card.user.name %></p>
 <br>
 <% end %>
 </ul>

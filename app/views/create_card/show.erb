@@ -7,4 +7,7 @@
 <h4>Description: </h4>
 <p><%= @cards.requirements %></p>
 
-<a href="/cards/<%= @cards.id %>/edit"> Edit Entry</a> 
+<% if current_user == @cards.user%>
+    <a href="/cards/<%= @cards.id %>/edit"> Edit Entry</a> 
+<% end %>
+

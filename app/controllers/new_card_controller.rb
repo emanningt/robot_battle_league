@@ -7,7 +7,7 @@ class NewCardController < ApplicationController
 
   post '/cards' do 
     
-     if !logged_in? 
+    if !logged_in? 
       redirect "/"
      end 
      if params[:cardname] != "" && params[:cardtype] != "" && params[:requirements] != ""
@@ -19,35 +19,39 @@ class NewCardController < ApplicationController
   end 
 
     get '/cards/:id' do 
-      @cards = Cards.find(params[:id])
+      set_card
       erb :'create_card/show'
     end 
 
     get '/cards/:id/edit' do
-      @cards = Cards.find(params[:id])
+      set_card
       if logged_in?
        if @cards.user == current_user
           erb :'create_card/edit'
        else 
-        redirect "posts/#{current_user.id}"
+        redirect "users/#{current_user.id}"
        end
       else
         redirect '/'
       end 
     end
 
-    post '/cards/:id' do
-      @cards = Cards.find(params[:id])
-      if logged_in?
-
-        if @cards.user == current_user
+     post '/cards/:id' do
+      set_card
+        if logged_in?
+          if @cards.user == current_user
             @cards.update({cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements]})
             redirect "cards/#{@cards.id}"
-        else 
-          redirect "/"
+          else 
+            redirect "/"
         end
-
       end 
-    end
+    end 
+   
+    private
 
+    def set_card
+      @cards = Cards.find(params[:id])
+    end 
+  
 end
