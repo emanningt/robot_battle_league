@@ -44,6 +44,9 @@ class ApplicationController < Sinatra::Base
         @cards = Cards.create(cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements], user_id: current_user.id)
       end 
       
+      def authorized_to_edit?(cards)
+        cards.user == current_user
+      end 
       
 
   end

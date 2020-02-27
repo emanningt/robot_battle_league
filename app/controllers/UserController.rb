@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}"
     else
-      redirect "users/#{@user.id}"
+      redirect "/signup"
     end 
   end
 

@@ -1,10 +1,5 @@
 class CardController < ApplicationController
 
-  get '/card_entries' do 
-    @cards = Cards.all
-    erb :'create_card/index'
-  end 
-
 
   get '/redcards' do
     erb :"/cards/red"

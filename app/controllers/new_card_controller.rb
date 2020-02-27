@@ -1,5 +1,9 @@
 class NewCardController < ApplicationController
 
+  get '/cards' do 
+    @cards = Cards.all
+      erb :'create_card/index'
+  end 
 
   get '/cards/new' do
     erb :'create_card/new'
@@ -26,28 +30,39 @@ class NewCardController < ApplicationController
     get '/cards/:id/edit' do
       set_card
       if logged_in?
-       if @cards.user == current_user
+       if authorized_to_edit?(@cards)
           erb :'create_card/edit'
        else 
         redirect "users/#{current_user.id}"
        end
       else
-        redirect '/'
+        redirect 'cards'
       end 
     end
 
-     post '/cards/:id' do
+     patch '/cards/:id' do
       set_card
         if logged_in?
-          if @cards.user == current_user
+          if authorized_to_edit?(@cards) 
             @cards.update({cardname: params[:cardname],cardtype: params[:cardtype],requirements: params[:requirements]})
             redirect "cards/#{@cards.id}"
           else 
-            redirect "/"
+            redirect "users/#{current_user.id}"
         end
+      else
+        redirect '/'
       end 
     end 
-   
+
+    delete '/cards/:id' do 
+      set_card
+      if authorized_to_edit?(@cards)
+        @cards.destroy
+      else 
+        redirect '/cards'
+      end 
+    end 
+
     private
 
     def set_card

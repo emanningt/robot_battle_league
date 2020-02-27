@@ -7,7 +7,13 @@
 <h4>Description: </h4>
 <p><%= @cards.requirements %></p>
 
-<% if current_user == @cards.user%>
-    <a href="/cards/<%= @cards.id %>/edit"> Edit Entry</a> 
-<% end %>
+<% if authorized_to_edit?(@cards)%>
+    <a href="/cards/<%= @cards.id %>/edit"> Edit Entry</a>
+<br>
+<br>
+<form calss="" action="/cards/<%= @cards.id %>" method="POST">
+<input type= "hidden" name="_method" value="DELETE">
+<input type= "submit" name="" value="Delete this Entry">
+</form>
 
+<% end %>
