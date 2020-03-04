@@ -1,5 +1,8 @@
 <h1>Create account</h1>
-
+<% if @errors %>
+  <%= @errors %>  
+<%end%>
+<br>
 
 <form class="" action="/users" method="POST">
 <p>

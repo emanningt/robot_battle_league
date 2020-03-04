@@ -10,10 +10,7 @@ class NewCardController < ApplicationController
   end
 
   post '/cards' do 
-    
-    if !logged_in? 
-      redirect "/"
-     end 
+    redirect_if_not_loggedin
      if params[:cardname] != "" && params[:cardtype] != "" && params[:requirements] != ""
       card_entry
       redirect "/cards/#{@cards.id}"
@@ -58,6 +55,7 @@ class NewCardController < ApplicationController
       set_card
       if authorized_to_edit?(@cards)
         @cards.destroy
+        redirect '/cards'
       else 
         redirect '/cards'
       end 

@@ -48,7 +48,11 @@ class ApplicationController < Sinatra::Base
         cards.user == current_user
       end 
       
-
+      def redirect_if_not_loggedin
+        if !logged_in? 
+          redirect "/"
+         end 
+        end 
   end
 
   
